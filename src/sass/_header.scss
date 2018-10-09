@@ -1,120 +1,21 @@
-header {
-	background-position: 100% 0%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-color: $dark;
-	position: relative;
+.home-header {
+	display: none;
+}
+
+.page-header {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-content: center;
-	min-height: 300px;
-
-	@media screen and (max-width: $md) and (min-width: $sm) {
-		min-height: 550px;
-	}
-
-	@media screen and (min-width: $md) {
-		min-height: 668px;
-	}
-}
-
-.header__overlay {
-	background: linear-gradient(71deg, #192a56, rgba(48, 139, 203, 0.0));
-	content: "";
-	display: block;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	opacity: 0.4;
-}
-
-
-// Header menu styles
-.headerMenu {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 888;
+	justify-content: space-between;
 	background-color: $dark;
-	padding: .5em 0;
-	box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.2);
-}
-
-.headerMenu__innerWrapper {
-	display: table;
-
-	> div {
-		display: table-cell;
-		vertical-align: middle;
-	}
+	padding: 1em 2em;
+	color: $highlight;
 
 	a {
-		color: white;
+		color: $highlight;
 		text-decoration: none;
+
 		&:hover, &:focus {
-			color: $highlight;
+			color: $light;
 		}
 	}
 }
-
-.headerMenu__logo img {
-	max-height: 3em;
-	width: auto;
-}
-
-.headerMenu__innerWrapper .menu-primary-container {
-	text-align: right;
-	ul {
-		li {
-			display: inline-block;
-			padding: 0 1em;
-			font-size: .8em;
-		}
-	}
-}
-
-.headerMenu__social {
-	text-align: right;
-	max-width: 6em;
-	a {
-		padding: .5em .2em;
-	}
-}
-
-// header text styles 
-.header__titleWrapper {
-	@extend .inner-wrapper;
-	margin-top: 4em;
-	padding-top: 6em;
-	padding-bottom: 6em;
-	position: relative;
-	z-index: 2;
-
-	&__title, &__subtitle, &__pageTitle {
-		text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-		color: white;
-	}
-
-	&__title {
-		font-size: 4em;
-		margin: 0 0 0 0;
-		font-weight: 900;
-		line-height: 1em;
-		span {
-			color: $highlight;
-		}
-	}
-	&__subtitle {
-		font-style: italic;
-		font-weight: 600;
-		margin: 0;
-	}
-	&__pageTitle {
-		font-size: 2em;
-	}
-}
-

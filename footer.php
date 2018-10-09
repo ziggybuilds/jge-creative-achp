@@ -14,12 +14,6 @@
 </div><!-- #page -->
 <footer class="footer container">
 	<div class="footer__innerWrapper inner-wrapper">
-		<div class="footer__innerWrapper__social">
-		<?php
-			// get social profiles
-			get_template_part('inc/social-profiles');
-		?>
-		</div>
 		<?php
 		// display logo
 		if( get_field('logo', 'options') ) {

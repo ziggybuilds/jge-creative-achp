@@ -1,270 +1,145 @@
-.frontTopper {
-	margin-top: -3em;
+.mainContainer {
 	position: relative;
-	z-index: 4;
-}
-
-.frontTopper__innerWrapper {
-	position: relative;
-	z-index: 5;
-
-	&__text {
-		padding-top: .2em;
-	}
-}
-
-.frontTopper__innerWrapper--videoActive {
-	.frontTopper__innerWrapper__video {
-		width: 90%;
-		margin: 20px auto;
-		max-width: 400px;
-		height: 200px;
-		padding-bottom: 20px;
-	}
-
-	@media screen and (min-width: $sm) {
-		display: table;
-		height: 60vh;
-		min-height: 550px;
-
-		.frontTopper__innerWrapper__text, .frontTopper__innerWrapper__video {
-			display: table-cell;
-			width: 50%;
-		}
-
-		.frontTopper__innerWrapper__text {
-			vertical-align: top;
-			padding: 2em 2em 110px 0;
-		}
-
-		.frontTopper__innerWrapper__video {
-			height: 100%;
-			padding: 4em 0 50px 0;
-		}
-	}
-}
-
-.frontTopper__innerWrapper--videoNull {
-	.frontTopper__innerWrapper__text {
-		max-width: 640px;
-		margin: 0 auto 120px auto;
-	}
-}
-
-
-
-.frontTopper__innerWrapper__text {
-	h2 {
-		font-size: 2em;
-		font-style: italic;
-		font-weight: $bold;
-		max-width: 60%;
-		span {
-			color: $highlight;
-		}
-	}
-}
-
-.frontTopper__innerWrapper__video {}
-
-.frontTopper__innerWrapper__video__innerVideo {
-	background-color: $medium;
-	position: relative;
-	height: 100%;
-	width: 100%;
-	transition: 0.2s ease-in;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-	background-position: center;
 	background-size: cover;
+	background-position: center;
 	background-repeat: no-repeat;
 
-	&:hover, &:focus {
-		box-shadow: 0 2px 10px 5px $highlight;
-	}
-
-	svg {
-		position: absolute;
-		max-width: 6em;
-		@extend .abs-center;
-	}
-}
-
-.frontTopper__whiteBox {
-	height: 100%;
-	width: calc(2/3 * 100%);
-	position: absolute;
-	z-index: 3;
-	left: 0;
-	top: 0;
-	content: "";
-	background-color: white;
-	display: block;
-}
-
-.frontTopper__bottomBar {
-	height: 100px;
-	width: 100%;
-	position: absolute;
-	z-index: 4;
-	left: 0;
-	bottom: 0;
-	content: "";
-	background-color: $light;
-	display: block;
-}
-
-// Frontpage Video Pop Up
-.popUp {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: 999;
-	background-color: rgba(0, 0, 0, 0.4);
-
 	&__innerWrapper {
-		@extend .abs-center;
-		width: 90%;
-		margin: 0 auto;
-		max-width: 960px;
-	}
-
-	&__innerWrapper__videoWrapper {
-		> iframe {
-			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-		}
-	}
-}
-
-#popUpClose {
-	color: white;
-	border: none;
-	padding: .2em;
-	font-size: 2em;
-	text-align: right;
-	width: 100%;
-
-	&:hover, &:focus {
+		min-height: 100vh;
+		padding: 2em 0;
+		position: relative;
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		color: $highlight;
 	}
-}
 
-// Frontpage post feed styles
-.feed {}
-
-.feed__innerWrapper {
-	max-width: 730px;
-}
-
-.feed__innerWrapper__title {
-	margin: 65px 0 40px 0;
-	padding: 0 3em;
-
-	p {
-		margin: 0;
-		font-weight: $bold;
-	}
-	h1 {
-		margin: 0;
-		font-style: italic;
-		font-size: 2.2em;
-		span {
-			color: $highlight;
-		}
-	}
-}
-
-.feed__articles__article {
-	position: relative;
-	margin: 60px 0;
-	
-	&__image {
-		@extend .responsive-image;
+	&:after {
+		content: "";
+		background-image: linear-gradient(to top, #103653, rgba(15, 30, 50, 0.3) 97%);
+		display: block;
+		height: 100%;
 		width: 100%;
-	}
-	&__title {
-		background-color: white;
 		position: absolute;
+		z-index: 1;
 		bottom: 0;
-		z-index: 2;
-		left: 0;
-		margin: 0;
-		padding: .5em 0;
-		width: calc(2/3 * 100%);
-	}
-	&__content {
-		ul, ol {
-			padding-left: 2em;
-		}
 	}
 }
 
-// Location bar styles
-.location {
-	background-color: $light;
-}
+.mainContainer__innerWrapper__text {
+	margin: 0 0 4em 0;
 
-.location__innerWrapper {
-	padding: 2.4em 1em;
-}
-
-.location__innerWrapper__marker {
-	max-width: 40px;
-	width: 50%;
-	margin: 0 auto 20px auto;
-
-	@media screen and (min-width: $sm) {
-		max-width: 94px;
-	}
-}
-
-.location__innerWrapper__content {
-	&__title {
-		font-style: italic;
+	h1 {
 		text-align: center;
+		font-size: 3.5em;
+		margin: 0 0 25px 0;
 	}
-	&__text {
+
+	> div {
 		max-width: 640px;
-		margin: 0 auto;
+		margin: 0 auto 0 auto;
+		line-height: 1.5em;
+		font-size: 1.1em;
 	}
 }
 
-// Team styles
-.team {}
-
-.team__innerWrapper {
-	padding: 4em 1em 2em 1em;
+.mainContainer__innerWrapper__cardTitle {
+	text-align: center;
+	width: 100%;
+	margin: 0 0 2em 0;
 }
 
-.team__innerWrapper__content {
-	max-width: 710px;
-	margin: 0 auto 3em auto;
-	&__title {
-		font-style: italic;
-		max-width: 390px;
-		margin: 0 auto 1.4em auto;
-		text-align: center;
-		span { color: $highlight; }
-	}
-	&__text {
-	}
-}
-
-.team__innerWrapper__grid {
+.mainContainer__innerWrapper__cards {
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: center;
+	flex-direction: column;
+	align-content: center;
 
+	@media screen and (min-width: $sm) {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
 
-	&__image {
-		margin: 5px 5px;
-		flex: 0 1 calc(50% - 10px);
-		@extend .responsive-image;
-		> img {
-			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+	&__card {
+		text-align: center;
+		padding: 2em 1em;
+		width: 90%;
+		margin: 5px 0;
+		max-width: 470px;
+		border-radius: 4px;
+		background-color: rgba(15, 30, 50, 0.7);
+		box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+		color: $highlight;
+
+		@media screen and (min-width: $sm) {
+			width: calc(50% - 5px);
+		}
+
+		h4 {
+			margin: 0 0 1.5em 0;
+		}
+
+		button {
+			width: 80%;
+		}
+	}
+}
+
+// page styles
+
+// ajax post / single post styles 
+// WP base page image styles
+img.alignright {float:right; margin:0 0 1em 1em}
+img.alignleft {float:left; margin:0 1em 1em 0}
+img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+a img.alignright {float:right; margin:0 0 1em 1em}
+a img.alignleft {float:left; margin:0 1em 1em 0}
+a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+
+.indexPost {
+	&__innerWrapper {
+		&__title {
+			text-align: center;
+			margin: 2em 0;
+		}
+
+		&__content {
+			max-width: 640px;
+			margin: 0 auto;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		blockquote {
+			color: $medium;
+			font-size: 1.4em;
+			padding: 0 2em;
+			font-style: italic;
+		}
+
+		table {
+			tbody {
+				tr {
+					td {
+						padding: .5em;
+						border-top: 2px solid $light;
+						&:first-of-type {
+							border-right: 2px solid $light;
+							vertical-align: top;
+						}
+					}
+				}
+			}
+		}
+
+		ul, ol {
+			li {
+				padding-left: 1em;
+			}
 		}
 	}
 }

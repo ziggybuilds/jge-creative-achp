@@ -15,9 +15,23 @@
 get_header(); ?>
  <?php $id = get_the_id(); ?>
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main container" role="main">
-		
-
+		<main id="main" class="site-main container indexPost" role="main">
+			<div class="inner-wrapper indexPost__innerWrapper">
+			<?php 
+				if ( have_posts() ) : 
+					while ( have_posts() ) : the_post();
+			?>
+			<div class="indexPost__innerWrapper__title">
+				<h1><?php the_title(); ?></h1>
+			</div>
+			<div class="indexPost__innerWrapper__content">
+				<?php the_content(); ?>
+			</div>
+			<?php
+					endwhile; 
+				endif;
+			?>
+			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

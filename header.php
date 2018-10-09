@@ -33,31 +33,15 @@ if ( is_home() || is_front_page() ) {
 // Grab homepage id
 $pageID = get_option('page_on_front');
 
-// check page header value
-if( get_field('hero_photo', $pageID ) ) {
-	$headerImage = 'style="background-image: url(' . get_field('hero_photo', $pageID ) . ')"';
-} else {
-	$headerImage = 'style=""';
-}
-
 ?>
 <div id="page" class="site">
 	<header id="masthead" <?php echo $headerImage ?> class="header container <?php echo $pageStyle; ?>" role="banner">
-		<?php get_template_part('inc/header-menu'); ?>
-		<div class="header__titleWrapper">
-			<?php
-				if ( is_home() || is_front_page() ) {
-					if ( get_field('header_title', $pageID) ) {
-						echo '<h1 class="header__titleWrapper__title">' . get_field('header_title', $pageID) . '</h1>';
-					}
-					if ( get_field('header_subtitle', $pageID) ) {
-						echo '<h3 class="header__titleWrapper__subtitle">' . get_field('header_subtitle', $pageID) . '</h3>';
-					}
-				} else {
-					echo '<h1 class="header__titleWrapper__pageTitle">' . get_the_title() . '</h1>';
-				}
-			?>
+		<div class="inner-wrapper header__innerWrapper">
+			<div class="header__innerWrapper__content">
+				<a href="<?php echo get_home_url(); ?>">
+					<?php echo get_bloginfo('title'); ?>
+				</a>
+			</div>
 		</div>
-		<div class="header__overlay"></div>
 	</header><!-- #masthead -->
 <div id="content" class="site-content">
