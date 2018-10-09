@@ -17,6 +17,10 @@ footer {
 		align-content: center;
 		flex-wrap: wrap;
 		flex-direction: column;
+
+		> div {
+			margin: 10px auto;
+		}
 	}
 }
 
