@@ -36,7 +36,7 @@
 				$article = get_sub_field('post_object');
 				$feature_post = get_post($post = $article, $output = OBJECT);
 				$title = $feature_post->post_title;
-				$date = $feature_post->post_date;
+				$date = mysql2date('F j, Y' ,$feature_post->post_date);
 				$url = get_permalink($card['card_object']);
 				$image = get_the_post_thumbnail_url($card['card_object']);
 	?>
