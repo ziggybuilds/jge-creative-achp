@@ -58,9 +58,11 @@
 						'<div class="carousel__innerWrapper__slider__slide__inner">' .
 							'<div class="carousel__innerWrapper__slider__slide__inner__image"><img src="' . get_the_post_thumbnail_url($slide) . '" alt="feature"/></div>' .
 							'<div class="carousel__innerWrapper__slider__slide__inner__text">' .
-								'<h3>' . $new_post->post_title . '</h3>' .
-								'<p>' . $excerpt . '</p>' .
-								'<div class="carousel__innerWrapper__slider__slide__button">' .
+								'<div class="carousel__innerWrapper__slider__slide__inner__text__content">' .
+										'<h3>' . $new_post->post_title . '</h3>' .
+										'<p>' . $excerpt . '</p>' .
+								'</div>' .
+								'<div class="carousel__innerWrapper__slider__slide__inner__text__button">' .
 									'<button data-href="'. get_permalink($slide) . '" class="primary">Learn More</button>' .
 								'</div>' .
 							'</div>' .

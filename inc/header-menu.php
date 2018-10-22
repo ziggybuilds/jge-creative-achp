@@ -10,20 +10,20 @@
 ?>
 <div class="headerMenu container">
 	<div class="headerMenu__innerWrapper inner-wrapper">
-		<div class="headerMenu__logo">
+		<div class="headerMenu__innerWrapper__logo">
 			<?php if ( get_field('logo', 'options') ):
 				echo '<a href="' . get_home_url() . '"><img src="' . get_field("logo", "options") . '" alt="logo" /></a>';
 			endif; ?>
 		</div>
-		<div class="header-menu-control">
+		<div class="headerMenu__innerWrapper__menuControl">
 			<button id="menuBtn" class=""><i class="fas fa-bars"></i>
-</button>
+			</button>
 		</div>
 		<?php
 		// displaying the nav menu
 			wp_nav_menu( array(
 				'menu' => 'Primary',
-				'menu_class' => 'headerMenu__menuInner',
+				'menu_class' => 'headerMenu__innerWrapper__menuInner',
 				) );
 		?>
 	</div>

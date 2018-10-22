@@ -131,30 +131,48 @@
   }
 }
 
+.carousel__innerWrapper__slider {
+  margin-bottom: 3.5em;
+}
 
 .carousel__innerWrapper__slider__slide__inner {
   display: flex;
   flex-direction: row;
-  justify-content: space-bewteen;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   &__text, &__image {
     width: 100%;
-    margin: 5px 0;
 
     @media screen and (min-width: $sm) {
       width: calc(50% - 10px);
-      margin: 0 5px;
+      
     }
   }
 
   &__image {
     position: relative;
     overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: $xs) {
+      max-height: 140px;
+    }
 
     > img {
       width: 100%;
       height: auto;
+      border-radius: 4px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__button {
+
     }
   }
 }
@@ -171,20 +189,22 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-content: center;
 
-    &__card {      
-      &:first-child {
-        margin: 5px 5px 5px 0;
-      }
+    &__card {
+      @media screen and (min-width: $sm) {
+        &:first-child {
+          margin: 5px 5px 5px 0;
+        }
 
-      &:last-child {
-        margin: 5px 0 5px 5px;
+        &:last-child {
+          margin: 5px 0 5px 5px;
+        }
       }
 
       margin: 5px;
       box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
-      overflow: hidden;
       position: relative;
 
       // hover states
@@ -217,6 +237,7 @@
       }
 
       &__content {
+        border-radius: 4px;
         width: 100%;
         padding: 0 .5em;
         background-color: $dark;
@@ -245,8 +266,11 @@
         width: 100%;
         padding: 0 .5em;
         height: calc(150/400 * 100%);
+        border-radius: 4px;
         display: table;
         background-color: white;
+
+      
         > h5 {
           display: table-cell;
           vertical-align: middle;
@@ -266,13 +290,20 @@
     flex-wrap: wrap;
 
     &__card {
-      @media screen and (min-width: $sm) {
+      @media screen and (min-width: $md) {
         flex: 1 0 30%;
         min-height: 530px;
+        min-height: 400px;
+      }
+
+      @media screen and (min-width: $sm) and (max-width: $md) {
+        flex: 1 0 40%;
+        min-height: 530px;
+        min-height: 400px;
       }
       
+      min-height: 300px;
       max-width: 390px;
-      min-height: 400px;
       flex: 1 0 100%;
       margin: .5em;
       border-radius: 4px;
@@ -287,20 +318,19 @@
         overflow: hidden;
 
         img {
-          @media screen and (min-width: $sm) {
-            width: auto;
-            height: 100%;
-          }
-
-          height: 120%;
+          width: 100%;
+          height: auto;
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
         }
       }
       &__content {
-        padding: 2em 2em;
         position: relative;
+        padding: 1em;
+        @media screen and (min-width: $sm) {
+          padding: 2em 2em;
+        }
 
         button {
           position: absolute;

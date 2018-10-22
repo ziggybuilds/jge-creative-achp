@@ -16,14 +16,6 @@ jQuery(document).ready(function ($) {
 
     // carousel controls and init
     var $slideshow = $('.carousel__innerWrapper__slider');
-    $slideshow.slick({
-        dots: true,
-        appendDots: '.carousel__innerWrapper__dots',
-        arrows: false,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-    });
 
     // carousel nav icon control
     var $navIcons = $('.carousel__navIcons');
@@ -44,13 +36,22 @@ jQuery(document).ready(function ($) {
 
     // carousel nav highlighting
     $($navIcons[0]).parent().addClass('active-nav');
-    $slideshow.on('beforeChange', function (event, slick, direction, currentSlide, nextSlide) {
+    $($slideshow).on('afterChange', function (event, slick, currentSlide) {
         for (var i = 0; i < $navIcons.length; i += 1) {
             if ($($navIcons[i]).parent().hasClass('active-nav')) {
                 $($navIcons[i]).parent().removeClass('active-nav');
             }
         }
-        $($navIcons[nextSlide]).parent().addClass('active-nav');
+        $($navIcons[currentSlide]).parent().addClass('active-nav');
+    });
+
+    $slideshow.slick({
+        dots: true,
+        appendDots: '.carousel__innerWrapper__dots',
+        arrows: false,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
     });
 
     // Add button controls
@@ -79,16 +80,19 @@ jQuery(document).ready(function ($) {
         var $mobileBtn = $('#menuBtn');
         if ($mobileBtn != undefined) {
             var $menu = $('.menu-header-container');
+            $menu.addClass('inactive');
             $mobileBtn.on('click', function (e) {
                 e.preventDefault();
                 if ($menu.hasClass('active')) {
                     $mobileBtn.removeClass('active');
+                    $menu.addClass('inactive');
                     $menu.removeClass('active');
-                    TweenMax.to($menu, 1, { y: '-400px' });
+                    TweenMax.to($menu, 0, { css: { opacity: 0 } });
                 } else {
                     $mobileBtn.addClass('active');
+                    $menu.removeClass('inactive');
                     $menu.addClass('active');
-                    TweenMax.to($menu, 1, { y: '0' }, '-=2');
+                    TweenMax.to($menu, 0.2, { css: { opacity: 1 } });
                 }
             });
         }

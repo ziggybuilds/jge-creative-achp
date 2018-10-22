@@ -31,16 +31,20 @@ if ( is_home() || is_front_page() ) {
 }
 
 $pageID = get_the_ID();
+
+if( get_field('hero_image', $pageID) ) {
+	$heroImage = 'style="background-image: url(' . get_field('hero_image', $pageID) . ')"';
+}
 ?>
 <div id="page" class="site">
-	<header id="masthead" <?php echo $headerImage ?> class="header container <?php echo $pageStyle; ?>" role="banner">
+	<header id="masthead" <?php echo $heroImage ?> class="header container <?php echo $pageStyle; ?>" role="banner">
 		<?php get_template_part('inc/header-menu'); ?>
 		<div class="header__innerWrapper inner-wrapper">
 			<?php
 				if ( is_home() || is_front_page() ) {
 					get_template_part('inc/home-hero');
 				} elseif ( !is_home() || !is_front_page()) {
-
+					get_template_part('inc/page-hero');
 				}
 			?>
 		</div>

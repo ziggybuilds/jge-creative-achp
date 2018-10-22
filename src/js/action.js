@@ -14,14 +14,6 @@ jQuery(document).ready(($) => {
 
 	// carousel controls and init
 	const $slideshow = $('.carousel__innerWrapper__slider');
-	$slideshow.slick({
-		dots: true,
-		appendDots: '.carousel__innerWrapper__dots',
-		arrows: false,
-		speed: 500,
-		fade: true,
-		cssEase: 'linear',
-	});
 
 	// carousel nav icon control
 	const $navIcons = $('.carousel__navIcons');
@@ -38,13 +30,22 @@ jQuery(document).ready(($) => {
 
 	// carousel nav highlighting
 	$($navIcons[0]).parent().addClass('active-nav');
-	$slideshow.on('beforeChange', function(event, slick, direction, currentSlide, nextSlide) {
+	$($slideshow).on('afterChange', function(event, slick, currentSlide) {
 		for (let i = 0; i < $navIcons.length; i += 1) {
 			if ($($navIcons[i]).parent().hasClass('active-nav')) {
 				$($navIcons[i]).parent().removeClass('active-nav');
 			}
 		}
-		$($navIcons[nextSlide]).parent().addClass('active-nav');
+		$($navIcons[currentSlide]).parent().addClass('active-nav');
+	});
+
+	$slideshow.slick({
+		dots: true,
+		appendDots: '.carousel__innerWrapper__dots',
+		arrows: false,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear',
 	});
 
 	// Add button controls

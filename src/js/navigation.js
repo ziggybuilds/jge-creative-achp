@@ -4,16 +4,19 @@ jQuery(document).ready(function($) {
 		const $mobileBtn = $('#menuBtn');
 		if ($mobileBtn != undefined) {
 			const $menu = $('.menu-header-container');
+			$menu.addClass('inactive');
 			$mobileBtn.on('click', (e) => {
 				e.preventDefault();
 				if ($menu.hasClass('active')) {
 					$mobileBtn.removeClass('active');
+					$menu.addClass('inactive');
 					$menu.removeClass('active');
-					TweenMax.to($menu, 1, { y: '-400px' });
+					TweenMax.to($menu, 0, { css: {opacity: 0} });
 				} else {
 					$mobileBtn.addClass('active');
+					$menu.removeClass('inactive');
 					$menu.addClass('active');
-					TweenMax.to($menu, 1, { y: '0' }, '-=2');
+					TweenMax.to($menu, 0.2, { css: {opacity: 1} });
 				}
 			});
 		}
