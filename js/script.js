@@ -87,12 +87,10 @@ jQuery(document).ready(function ($) {
                     $mobileBtn.removeClass('active');
                     $menu.addClass('inactive');
                     $menu.removeClass('active');
-                    TweenMax.to($menu, 0, { css: { opacity: 0 } });
                 } else {
                     $mobileBtn.addClass('active');
                     $menu.removeClass('inactive');
                     $menu.addClass('active');
-                    TweenMax.to($menu, 0.2, { css: { opacity: 1 } });
                 }
             });
         }
