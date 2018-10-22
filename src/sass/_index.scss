@@ -289,17 +289,35 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 
+
+
     &__card {
       @media screen and (min-width: $md) {
         flex: 1 0 30%;
         min-height: 530px;
         min-height: 400px;
+
+        &:first-child {
+          margin: 5px 5px 5px 0;
+        }
+
+        &:last-child {
+          margin: 5px 0 5px 5px;
+        }
       }
 
       @media screen and (min-width: $sm) and (max-width: $md) {
         flex: 1 0 40%;
         min-height: 530px;
         min-height: 400px;
+
+        &:first-child {
+          margin: 5px 5px 5px 0;
+        }
+
+        &:last-child {
+          margin: 5px 0 5px 5px;
+        }
       }
       
       min-height: 300px;

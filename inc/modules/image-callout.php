@@ -15,7 +15,7 @@
 		<div class="image-callout__innerWrapper__content">
 			<h3 class="image-callout__innerWrapper__content__title"><?php the_sub_field('title'); ?></h3>
 			<div class="image-callout__innerWrapper__content__desc"><p><?php the_sub_field('description'); ?></p></div>
-			<button class="image-callout__innerWrapper__content__link primary" data-href="<?php the_sub_field('link'); ?>">More</button>
+			<button class="image-callout__innerWrapper__content__link primary imageCalloutButton" data-href="<?php the_sub_field('link'); ?>">More</button>
 		</div>
 	</div>
 </section>

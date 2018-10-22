@@ -57,20 +57,24 @@ jQuery(document).ready(function ($) {
     // Add button controls
     function hrefBtnControl(tag) {
         var $arr = $(tag);
+        if ($arr) {
+            var _loop2 = function _loop2(i) {
+                $($arr[i]).on('click', function (e) {
+                    e.preventDefault();
+                    var href = $($arr[i]).attr('data-href');
+                    window.location = href;
+                });
+            };
 
-        var _loop2 = function _loop2(i) {
-            $($arr[i]).on('click', function (e) {
-                e.preventDefault();
-                var href = $($arr[i]).attr('data-href');
-                window.location = href;
-            });
-        };
-
-        for (var i = 0; i < $arr.length; i += 1) {
-            _loop2(i);
+            for (var i = 0; i < $arr.length; i += 1) {
+                _loop2(i);
+            }
         }
     }
     hrefBtnControl('.duotone-cards__innerWrapper__card');
+    hrefBtnControl('.carouselButton');
+    hrefBtnControl('.largeCardButton');
+    hrefBtnControl('.imageCalloutButton');
 });
 
 jQuery(document).ready(function ($) {

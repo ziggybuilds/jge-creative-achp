@@ -51,13 +51,18 @@ jQuery(document).ready(($) => {
 	// Add button controls
 	function hrefBtnControl(tag) {
 		const $arr = $(tag);
-		for (let i = 0; i < $arr.length; i += 1) {
-			$($arr[i]).on('click', (e) => {
-				e.preventDefault();
-				const href = $($arr[i]).attr('data-href');
-				window.location = href;
-			});
+		if ($arr) {
+			for (let i = 0; i < $arr.length; i += 1) {
+				$($arr[i]).on('click', (e) => {
+					e.preventDefault();
+					const href = $($arr[i]).attr('data-href');
+					window.location = href;
+				});
+			}
 		}
 	}
 	hrefBtnControl('.duotone-cards__innerWrapper__card');
+	hrefBtnControl('.carouselButton');
+	hrefBtnControl('.largeCardButton');
+	hrefBtnControl('.imageCalloutButton');
 });

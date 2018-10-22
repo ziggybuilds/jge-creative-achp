@@ -31,7 +31,7 @@
 				<img src="<?php echo $image; ?>">
 			</div>
 			<div class="large-cards__innerWrapper__card__content">
-				<button class="primary" data-href="<?php echo $url; ?>">More</button>
+				<button class="primary largeCardButton" data-href="<?php echo $url; ?>">More</button>
 				<h5><?php echo $title; ?></h5>
 			</div>
 		</div>

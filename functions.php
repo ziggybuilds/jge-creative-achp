@@ -248,13 +248,6 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'post',
-			),
-		),
-		array(
-			array(
 				'param' => 'page_type',
 				'operator' => '!=',
 				'value' => 'front_page',
@@ -262,9 +255,16 @@ acf_add_local_field_group(array(
 		),
 		array(
 			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
 				'param' => 'page',
 				'operator' => '!=',
-				'value' => '51',
+				'value' => '48',
 			),
 		),
 	),
@@ -570,9 +570,9 @@ acf_add_local_field_group(array(
 		),
 		array(
 			array(
-				'param' => 'page',
+				'param' => 'page_type',
 				'operator' => '!=',
-				'value' => '51',
+				'value' => '48',
 			),
 		),
 		array(

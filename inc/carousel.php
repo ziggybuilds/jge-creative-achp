@@ -63,7 +63,7 @@
 										'<p>' . $excerpt . '</p>' .
 								'</div>' .
 								'<div class="carousel__innerWrapper__slider__slide__inner__text__button">' .
-									'<button data-href="'. get_permalink($slide) . '" class="primary">Learn More</button>' .
+									'<button data-href="'. get_permalink($slide) . '" class="primary carouselButton">Learn More</button>' .
 								'</div>' .
 							'</div>' .
 						'</div>' .
