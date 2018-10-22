@@ -1,6 +1,24 @@
 jQuery(document).ready(function($) {
 	'use strict';
-
+	function mobileMenu() {
+		const $mobileBtn = $('#menuBtn');
+		if ($mobileBtn != undefined) {
+			const $menu = $('.menu-header-container');
+			$mobileBtn.on('click', (e) => {
+				e.preventDefault();
+				if ($menu.hasClass('active')) {
+					$mobileBtn.removeClass('active');
+					$menu.removeClass('active');
+					TweenMax.to($menu, 1, { y: '-400px' });
+				} else {
+					$mobileBtn.addClass('active');
+					$menu.addClass('active');
+					TweenMax.to($menu, 1, { y: '0' }, '-=2');
+				}
+			});
+		}
+	}
+	mobileMenu();
 
 	// Select all links with hashes
 	$('a[href*="#"]')

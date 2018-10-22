@@ -30,18 +30,19 @@ if ( is_home() || is_front_page() ) {
 	$pageStyle = "page-header";
 }
 
-// Grab homepage id
-$pageID = get_option('page_on_front');
-
+$pageID = get_the_ID();
 ?>
 <div id="page" class="site">
 	<header id="masthead" <?php echo $headerImage ?> class="header container <?php echo $pageStyle; ?>" role="banner">
-		<div class="inner-wrapper header__innerWrapper">
-			<div class="header__innerWrapper__content">
-				<a href="<?php echo get_home_url(); ?>">
-					<?php echo get_bloginfo('title'); ?>
-				</a>
-			</div>
+		<?php get_template_part('inc/header-menu'); ?>
+		<div class="header__innerWrapper inner-wrapper">
+			<?php
+				if ( is_home() || is_front_page() ) {
+					get_template_part('inc/home-hero');
+				} elseif ( !is_home() || !is_front_page()) {
+
+				}
+			?>
 		</div>
 	</header><!-- #masthead -->
 <div id="content" class="site-content">

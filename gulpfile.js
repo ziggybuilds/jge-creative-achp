@@ -73,12 +73,13 @@ gulp.task('watch', function() {
 var browserSyncFiles = [
     './style.css',
     './js/script.min.js',
-    './*.php'
+    './*.php',
+    '.inc/**/*.php',
 ];
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
-    proxy: "http://localhost/america-works-usa-2018/wordpress/",
+    proxy: "http://localhost/achp-project/wordpress/",
     notify: false,
     injectChanges: false
 };

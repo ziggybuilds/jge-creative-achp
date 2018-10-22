@@ -100,11 +100,11 @@ add_action( 'widgets_init', 'jestarter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function jestarter_scripts() {
-	wp_enqueue_style( 'google_fonts', 'https://fonts.googleapis.com/css?family=Lato:400,400i,700', false);
-
 	wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.2.0/css/all.css'); 
 
 	wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', true);
+
+	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 
 	wp_enqueue_script('ScrollToPlugin', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/ScrollToPlugin.min.js', true);
 
@@ -196,288 +196,25 @@ function displayCats() {
 	}
 }
 
-if( function_exists('acf_add_local_field_group') ):
-
-acf_add_local_field_group(array(
-	'key' => 'group_5bbcaf3a79fd1',
-	'title' => 'Branding & Footer',
-	'fields' => array(
-		array(
-			'key' => 'field_5bbcaf42aecdc',
-			'label' => 'Logo',
-			'name' => 'logo',
-			'type' => 'image',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'url',
-			'preview_size' => 'thumbnail',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => '',
-		),
-		array(
-			'key' => 'field_5bbcaf4eaecdd',
-			'label' => 'Copyright',
-			'name' => 'copyright',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5bbcaf57aecde',
-			'label' => 'Disclaimer',
-			'name' => 'disclaimer',
-			'type' => 'textarea',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'maxlength' => '',
-			'rows' => '',
-			'new_lines' => '',
-		),
-		array(
-			'key' => 'field_5bbcaf5faecdf',
-			'label' => 'Privacy Policy',
-			'name' => 'privacy_policy',
-			'type' => 'url',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'options_page',
-				'operator' => '==',
-				'value' => 'acf-options-theme-options',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => 1,
-	'description' => '',
-));
-
-acf_add_local_field_group(array(
-	'key' => 'group_5bbcabdbd0748',
-	'title' => 'Home',
-	'fields' => array(
-		array(
-			'key' => 'field_5bbcabf595f4e',
-			'label' => 'Title',
-			'name' => 'title',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5bbcabfd95f4f',
-			'label' => 'Topper Text',
-			'name' => 'topper_text',
-			'type' => 'wysiwyg',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'tabs' => 'text',
-			'toolbar' => 'full',
-			'media_upload' => 0,
-			'delay' => 0,
-		),
-		array(
-			'key' => 'field_5bbcc99c7a5d9',
-			'label' => 'Background',
-			'name' => 'background',
-			'type' => 'image',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'url',
-			'preview_size' => 'thumbnail',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => '',
-		),
-		array(
-			'key' => 'field_5bbcac2195f50',
-			'label' => 'Polling Place Cards',
-			'name' => 'polling_place_cards',
-			'type' => 'repeater',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'collapsed' => '',
-			'min' => 0,
-			'max' => 0,
-			'layout' => 'table',
-			'button_label' => '',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_5bbcac3795f51',
-					'label' => 'State Name',
-					'name' => 'state_name',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 1,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-				array(
-					'key' => 'field_5bbcac4495f52',
-					'label' => 'Button Label',
-					'name' => 'button_label',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-				array(
-					'key' => 'field_5bbcac5695f53',
-					'label' => 'Button Href',
-					'name' => 'button_href',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 1,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-			),
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'page',
-				'operator' => '==',
-				'value' => '8',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'acf_after_title',
-	'style' => 'seamless',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => array(
-		0 => 'permalink',
-		1 => 'the_content',
-		2 => 'excerpt',
-		3 => 'custom_fields',
-		4 => 'discussion',
-		5 => 'comments',
-		6 => 'revisions',
-		7 => 'slug',
-		8 => 'author',
-		9 => 'format',
-		10 => 'page_attributes',
-		11 => 'featured_image',
-		12 => 'categories',
-		13 => 'tags',
-		14 => 'send-trackbacks',
-	),
-	'active' => 1,
-	'description' => '',
-));
-
-endif;
+// helper function to display the proper icon
+function display_nav_icon($label) {
+	$match = strtolower($label); 
+	switch ($match) {
+		case 'co-creating care':
+			$icon = get_template_part('icons/care');
+			break;
+		case 'data transparency':
+			$icon = get_template_part('icons/data');
+			break;
+		case 'right tools':
+			$icon = get_template_part('icons/tools');
+			break;
+		case 'value':
+			$icon = get_template_part('icons/value');
+			break;
+		default:
+			$icon = get_template_part('icons/care');
+			break;
+	}
+	return $icon;
+}

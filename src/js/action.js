@@ -12,17 +12,51 @@ jQuery(document).ready(($) => {
 			.addTo(controller);
 	}
 
-	const $cards = $('.mainContainer__innerWrapper');
-	for (let i = 0; i < $cards.length; i += 1) {
-		scrollReveal($cards[i], 2);
-	}
+	// carousel controls and init
+	const $slideshow = $('.carousel__innerWrapper__slider');
+	$slideshow.slick({
+		dots: true,
+		appendDots: '.carousel__innerWrapper__dots',
+		arrows: false,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear',
+	});
 
-	const $voterLinks = $('.voterLinks');
-	for (let i = 0; i < $voterLinks.length; i += 1) {
-		const href = $($voterLinks[i]).attr('data-href');
-		$($voterLinks[i]).on('click', (e) => {
-			e.preventDefault();
-			window.location = href;
-		});
+	// carousel nav icon control
+	const $navIcons = $('.carousel__navIcons');
+	function navIconControl() {
+		for (let i = 0; i < $navIcons.length; i += 1) {
+			$($navIcons[i]).on('click', (e) => {
+				e.preventDefault();
+				// pass method and index to slick class
+				$slideshow.slick('slickGoTo', i, true);
+			});
+		}
 	}
+	navIconControl();
+
+	// carousel nav highlighting
+	$($navIcons[0]).parent().addClass('active-nav');
+	$slideshow.on('beforeChange', function(event, slick, direction, currentSlide, nextSlide) {
+		for (let i = 0; i < $navIcons.length; i += 1) {
+			if ($($navIcons[i]).parent().hasClass('active-nav')) {
+				$($navIcons[i]).parent().removeClass('active-nav');
+			}
+		}
+		$($navIcons[nextSlide]).parent().addClass('active-nav');
+	});
+
+	// Add button controls
+	function hrefBtnControl(tag) {
+		const $arr = $(tag);
+		for (let i = 0; i < $arr.length; i += 1) {
+			$($arr[i]).on('click', (e) => {
+				e.preventDefault();
+				const href = $($arr[i]).attr('data-href');
+				window.location = href;
+			});
+		}
+	}
+	hrefBtnControl('.duotone-cards__innerWrapper__card');
 });

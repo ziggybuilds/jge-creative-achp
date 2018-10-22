@@ -12,24 +12,19 @@
 	<div class="headerMenu__innerWrapper inner-wrapper">
 		<div class="headerMenu__logo">
 			<?php if ( get_field('logo', 'options') ):
-				echo '<img src="' . get_field("logo", "options") . '" alt="logo" />';
+				echo '<a href="' . get_home_url() . '"><img src="' . get_field("logo", "options") . '" alt="logo" /></a>';
 			endif; ?>
 		</div>
+		<div class="header-menu-control">
+			<button id="menuBtn" class=""><i class="fas fa-bars"></i>
+</button>
+		</div>
 		<?php
-			// echoing the nav menu
-		/*
+		// displaying the nav menu
 			wp_nav_menu( array(
 				'menu' => 'Primary',
 				'menu_class' => 'headerMenu__menuInner',
 				) );
-		*/
 		?>
-		<div class="headerMenu__social">
-			<?php 
-				grabSocial('facebook');
-				grabSocial('youtube');
-				grabSocial('twitter');
-			?>
-		</div>
 	</div>
 </div>

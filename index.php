@@ -18,17 +18,42 @@ get_header(); ?>
 		<main id="main" class="site-main container indexPost" role="main">
 			<div class="inner-wrapper indexPost__innerWrapper">
 			<?php 
+				// begin page loop
 				if ( have_posts() ) : 
 					while ( have_posts() ) : the_post();
-			?>
-			<div class="indexPost__innerWrapper__title">
-				<h1><?php the_title(); ?></h1>
-			</div>
-			<div class="indexPost__innerWrapper__content">
-				<?php the_content(); ?>
-			</div>
-			<?php
-					endwhile; 
+
+						// begin nav icon conditional display
+						if ( get_field( 'toggle_nav_display' ) ) :
+							if ( get_field( 'toggle_nav_display' ) === true ) :
+								if ( have_rows( 'navigation_bar_fields', 'options' ) ) :
+									$rows = get_field( 'navigation_bar_fields', 'options' );
+						?>
+								
+								<section className="navBar"><!-- start of navIcons section -->
+									<div class="inner-wrapper navBar__innerWrapper">
+										<div class="navIcons">
+										<?php
+											foreach($rows as $item) :
+										?>
+												<div class="navIcons__item">
+													<a href="<?php echo $item['link']; ?>">
+														<?php echo display_nav_icon($item['icon']);	?>
+														<p><?php echo $item['icon_title']; ?></p>
+													</a>
+												</div>
+										<?php	
+											endforeach;
+										?>
+										</div>
+									</div>
+								</section>
+				<?php 
+				// end conditional if nav icons are toggled on
+				endif; endif; endif;
+				// begin modular page loop
+				get_template_part('inc/modular-page-builder');
+				// end page loop
+				endwhile;
 				endif;
 			?>
 			</div>

@@ -13,31 +13,33 @@
 	</div><!-- #content -->
 </div><!-- #page -->
 <footer class="footer container">
-	<div class="footer__innerWrapper inner-wrapper">
+	<div class="inner-wrapper footer__innerWrapper">
+		<div class="footer__innerWrapper__menu">
+			<?php wp_nav_menu( array(
+					'menu' => 'menu-2',
+					'menu_class' => 'footerMenu'
+				) );
+			?>
+		</div>
 		<?php
-		// display logo
-		if( get_field('logo', 'options') ) {
-			echo '<div class="footer__innerWrapper__logo logo"><img src="' . get_field('logo', 'options') . '" alt="logo" /></div>';
-		}
+		if( get_field('logo', 'options') ) :
+				echo '<div class="footer__innerWrapper__logo">' .
+						'<img src="' . get_field('logo', 'options') . '">' .
+					'</div>';
+		endif;
 		?>
 		<div class="footer__innerWrapper__disclaimer">
-			<?php
-				// display disclaimer
-				if( get_field('disclaimer', 'options') ) {
-					echo '<p>' . get_field('disclaimer', 'options') . '</p>';
-				}
-				if( get_field('copyright', 'options') ) {
-					echo '<p>' . get_field('copyright', 'options') . ' &copy; ' . date("Y") . '</p>';
-				}
-				if( get_field('privacy_policy', 'options') ) {
-					echo '<a href="' . get_field('privacy_policy', 'options') . '">Privacy Policy</a>';
-				}
+			<?php 
+			if( get_field('copyright', 'options') ) :
+				echo '<p>' .  get_field('copyright', 'options') . ' &copy; ' . date("Y") . '</p>';
+			endif;
+			if( get_field('disclaimer', 'options') ) :
+				echo '<p>' .  get_field('disclaimer', 'options') . '</p>';
+			endif;
 			?>
 		</div>
 	</div>
 </footer>
-
 <?php wp_footer(); ?>
-
 </body>
 </html>

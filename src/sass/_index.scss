@@ -1,145 +1,431 @@
-.mainContainer {
-	position: relative;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+.navIcons {
+  margin-top: -20px;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+  background-color: $dark;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 3;
 
-	&__innerWrapper {
-		min-height: 100vh;
-		padding: 2em 0;
-		position: relative;
-		z-index: 3;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		color: $highlight;
-	}
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
 
-	&:after {
-		content: "";
-		background-image: linear-gradient(to top, #103653, rgba(15, 30, 50, 0.3) 97%);
-		display: block;
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		z-index: 1;
-		bottom: 0;
-	}
+  @media screen and (min-width: $sm) {
+    max-height: 220px;
+    padding: 1em 1em;
+  }
+
+  &__item {
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    transition: 0.2s ease-in;
+
+    @media screen and (max-width: $xs) {
+      flex: 1 0 20%;
+      padding: .5em;
+
+      a svg {
+        max-width: 25px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $xs) and (max-width: $sm) {
+      flex: 1 0 20%;
+      padding: .5em;
+     
+      a svg {
+        max-width: 30px;
+      }
+
+      p {
+        font-size: 9px;
+      }
+    }
+
+    @media screen and (min-width: $sm) {
+      flex: 1 0 25%;
+      padding: 1em;
+      max-width: 180px;
+    }
+
+    
+    &:hover, &:focus {
+      background-color: $highlight;
+      a {
+        color: white;
+      }
+    }
+
+    a {
+      color: white;
+      @extend .icon-text;
+    }
+
+    svg {
+      max-width: 60px;
+      width: 80%;
+      height: auto;
+    }
+  }
 }
 
-.mainContainer__innerWrapper__text {
-	margin: 0 0 4em 0;
-
-	h1 {
-		text-align: center;
-		font-size: 3.5em;
-		margin: 0 0 25px 0;
-	}
-
-	> div {
-		max-width: 640px;
-		margin: 0 auto 0 auto;
-		line-height: 1.5em;
-		font-size: 1.1em;
-	}
+.active-nav {
+  background-color: $highlight;
+  a {
+    color: white;
+  }
 }
 
-.mainContainer__innerWrapper__cardTitle {
-	text-align: center;
-	width: 100%;
-	margin: 0 0 2em 0;
+
+// carousel dots styles
+.carousel__innerWrapper__dots {
+  margin: 20px 0 30px 0;
+  .slick-dots {
+    text-align: center;
+    li.slick-active {
+      button {
+        &:before {
+          background-color: $highlight;
+        }
+      }
+    }
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0 1em;
+      button {
+        font-size: 0px;
+        position: relative;
+        &:before {
+          cursor: pointer;
+          display: block;
+          border: 2px solid $dark;
+          color: $dark;
+          content: '';
+          text-align: center;
+
+          width: 10px;
+          height: 10px;
+          border-radius: 10px;
+
+          @media screen and (min-width: $sm){
+            width: 14px;
+            height: 14px;
+            border-radius: 14px;
+          }
+        }
+      }
+    }
+  }
 }
 
-.mainContainer__innerWrapper__cards {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	align-content: center;
 
-	@media screen and (min-width: $sm) {
-		flex-direction: row;
-		justify-content: space-evenly;
-	}
+.carousel__innerWrapper__slider__slide__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-bewteen;
+  flex-wrap: wrap;
 
-	&__card {
-		text-align: center;
-		padding: 2em 1em;
-		width: 90%;
-		margin: 5px auto;
-		max-width: 470px;
-		border-radius: 4px;
-		background-color: rgba(15, 30, 50, 0.7);
-		box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
-		color: $highlight;
+  &__text, &__image {
+    width: 100%;
+    margin: 5px 0;
 
-		@media screen and (min-width: $sm) {
-			width: calc(50% - 5px);
-		}
+    @media screen and (min-width: $sm) {
+      width: calc(50% - 10px);
+      margin: 0 5px;
+    }
+  }
 
-		h4 {
-			margin: 0 0 1.5em 0;
-		}
+  &__image {
+    position: relative;
+    overflow: hidden;
 
-		button {
-			width: 80%;
-		}
-	}
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
-// page styles
+// Modular card styles
+.duotone-cards, .large-cards, .image-callout, .text-callout, .video-callout, .full-width {
+  margin: 0 0 75px 0;
+}
 
-// ajax post / single post styles 
-// WP base page image styles
-img.alignright {float:right; margin:0 0 1em 1em}
-img.alignleft {float:left; margin:0 1em 1em 0}
-img.aligncenter {display: block; margin-left: auto; margin-right: auto}
-a img.alignright {float:right; margin:0 0 1em 1em}
-a img.alignleft {float:left; margin:0 1em 1em 0}
-a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+// Duotone Card Styles
+.duotone-cards {
+  &__innerWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-.indexPost {
-	&__innerWrapper {
-		&__title {
-			text-align: center;
-			margin: 2em 0;
-		}
+    &__card {      
+      &:first-child {
+        margin: 5px 5px 5px 0;
+      }
 
-		&__content {
-			max-width: 640px;
-			margin: 0 auto;
-		}
+      &:last-child {
+        margin: 5px 0 5px 5px;
+      }
 
-		img {
-			max-width: 100%;
-			height: auto;
-		}
+      margin: 5px;
+      box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
 
-		blockquote {
-			color: $medium;
-			font-size: 1.4em;
-			padding: 0 2em;
-			font-style: italic;
-		}
+      // hover states
+      transition: 0.2s ease-in;
+      &:focus, &:hover {
+        z-index: 3;
+        transform: translateY(-15px) scale(1.06);
 
-		table {
-			tbody {
-				tr {
-					td {
-						padding: .5em;
-						border-top: 2px solid $light;
-						&:first-of-type {
-							border-right: 2px solid $light;
-							vertical-align: top;
-						}
-					}
-				}
-			}
-		}
+       .duotone-cards__innerWrapper__card__content {
+          background: $highlight;
+          color: $dark;
+          > a {
+            color: $dark;
+          }
+        }
+      }
 
-		ul, ol {
-			li {
-				padding-left: 1em;
-			}
-		}
-	}
+      // media queries
+      @media screen and (min-width: $sm) {
+        flex: 1 0 calc(25% - 10px);
+        height: 400px;
+      }
+      @media screen and (max-width: $sm) and (min-width: $xs) {
+        flex: 1 0 calc(50% - 10px);
+        min-height: 250px;
+      }
+      @media screen and (max-width: $xs) {
+        flex: 1 0 100%;
+        height: 250px;
+      }
+
+      &__content {
+        width: 100%;
+        padding: 0 .5em;
+        background-color: $dark;
+        color: white;
+        height: calc(250/400 * 100%);
+        position: relative;
+        display: table;
+        transition: 0.2s ease-in;
+        > p {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > a {
+          color: $highlight;
+          text-decoration: none;
+          font-size: .8em;
+          text-transform: uppercase;
+          position: absolute;
+          bottom: 1em;
+          right: 1em;
+        }
+      }
+
+      &__title {
+        width: 100%;
+        padding: 0 .5em;
+        height: calc(150/400 * 100%);
+        display: table;
+        background-color: white;
+        > h5 {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+
+// Large Cards Styles
+.large-cards {
+  &__innerWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    &__card {
+      @media screen and (min-width: $sm) {
+        flex: 1 0 30%;
+        min-height: 530px;
+      }
+      
+      max-width: 390px;
+      min-height: 400px;
+      flex: 1 0 100%;
+      margin: .5em;
+      border-radius: 4px;
+      background-color: white;
+      box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+      position: relative;
+
+      &__img {
+        position: relative;
+        width: 100%;
+        height: calc(3/5 * 100%);
+        overflow: hidden;
+
+        img {
+          @media screen and (min-width: $sm) {
+            width: auto;
+            height: 100%;
+          }
+
+          height: 120%;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      &__content {
+        padding: 2em 2em;
+        position: relative;
+
+        button {
+          position: absolute;
+          right: 1em;
+          top: -2em;
+          width: 60%;
+          z-index: 4;
+        }
+
+        h5 {
+          line-height: 1.5;
+          letter-spacing: normal;
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+
+// Text Callout Styles
+.text-callout {
+  &__innerWrapper {
+    &__content {
+      max-width: 710px;
+      margin: 0 auto;
+      &__title {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Video Callout Styles
+.video-callout {
+  background-color: $lightgrey;
+  padding: 3em 0 2em 0;
+  &__innerWrapper {
+    max-width: 956px;
+    &__video {
+       box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+       max-width: 956px;
+    }
+    &__content {
+      &__title {
+        margin: 12px 0 0 0;
+        text-align: center;
+        font-family: $fontmain;
+      }
+    }
+  }
+}
+
+// Full Width Content Styles
+.full-width {
+  &__innerWrapper {
+    &__content {
+      max-width: 710px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Image Callout styles
+.image-callout {
+  background-color: $lightgrey;
+  padding: 2.625em 0;
+
+  &__innerWrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    @media screen and (min-width: $sm) {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    &__image {
+      width: 100%;
+       @media screen and (min-width: $sm) {
+        width: 60%;
+        padding-right: 2em; 
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &__content {
+      width: 100%;
+
+       @media screen and (min-width: $sm) {
+        width: 40%;
+        display: flex;
+        height: 400px;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+
+
+
+      &__title {
+
+      }
+      &__desc {
+
+      }
+      &__link {
+        margin-top: 3em;
+        max-width: 200px;
+        width: 60%;
+
+        @media screen and (max-width: $sm) {
+          float: right;
+        }
+      }
+    }
+  }
 }

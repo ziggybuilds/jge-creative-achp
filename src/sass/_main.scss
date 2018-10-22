@@ -33,13 +33,29 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $fontmain;
+	font-family: $displayfont;
 	font-weight: bold;
-	letter-spacing: .01em;
 }
+
+h1 {font-size: 2em}
+h2 {font-size: 1.8em}
+h3 {font-size: 1.6em}
+h4 {font-size: 1.4em}
+h5 {font-size: 1.2em}
+h6 {font-size: 1em}
 
 .title {
 	font-family: $displayfont;
+}
+
+.icon-text {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	@media only screen and (max-width: $sm) {
+		font-size: 12px;
+	}
 }
 
 strong {
@@ -61,17 +77,23 @@ i {
 }
 
 button {
-  	height: 60px;
-  	border-radius: 2px;
+  	height: 4em;
+  	border-radius: 1px;
   	border: none;
-  	background-color: #21beda;
-  	box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
-	padding: 1em .5em;
+	padding: 0 .5em;
 	transition: 0.2s ease-in;
+	color: white;
+	font-family: $fontmain;
+	font-size: .8em;
+	font-weight: bold;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 button.primary {
-	color: white;
+	background-color: $highlight;
+	&:hover, &:focus {
+		background-color: $medium;
+	}
 }
 
 button.link {
