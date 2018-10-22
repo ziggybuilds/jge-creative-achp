@@ -563,23 +563,9 @@ acf_add_local_field_group(array(
 	'location' => array(
 		array(
 			array(
-				'param' => 'page_type',
-				'operator' => '!=',
-				'value' => 'front_page',
-			),
-		),
-		array(
-			array(
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'post',
-			),
-		),
-		array(
-			array(
-				'param' => 'page',
-				'operator' => '!=',
-				'value' => '48',
 			),
 		),
 	),
@@ -630,25 +616,6 @@ acf_add_local_field_group(array(
 			'key' => 'field_5bbfb434c759c',
 			'label' => 'Title',
 			'name' => 'hero_title',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5bbfb441c759d',
-			'label' => 'Subtitle',
-			'name' => 'hero_subtitle',
 			'type' => 'text',
 			'instructions' => '',
 			'required' => 0,
