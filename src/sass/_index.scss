@@ -91,6 +91,7 @@
       button {
         &:before {
           background-color: $highlight;
+          color: $highlight;
         }
       }
     }
@@ -102,11 +103,12 @@
         font-size: 0px;
         position: relative;
         &:before {
+          color: #fff;
           cursor: pointer;
           display: block;
           border: 2px solid $dark;
           color: $dark;
-          content: '';
+          content: '.';
           text-align: center;
 
           width: 10px;
