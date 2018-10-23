@@ -102,8 +102,11 @@
       display: inline-block;
       padding: 0 1em;
       button {
-        font-size: 0px;
+        font-size: 2px;
+        color: #fff;
         position: relative;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        background: transparent;
         &:before {
           color: #fff;
           cursor: pointer;
@@ -518,14 +521,14 @@
   max-height: 1em;
   }
 blockquote.left {
-  margin-right: 20px;
+  margin-right: 10px;
   text-align: right;
   margin-left: 0;
   width: 33%;
   float: left;
   }
 blockquote.right {
-  margin-left: 20px;
+  margin-left: 10px;
   text-align: left;
   margin-right: 0;
   width: 33%;
