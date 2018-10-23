@@ -88,6 +88,7 @@
     text-align: center;
     ul {
       padding: 0;
+      margin: 0;
     }
     li.slick-active {
       button {
@@ -102,7 +103,6 @@
       display: inline-block;
       padding: 0 1em;
       button {
-
         color: #fff;
         position: relative;
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);
