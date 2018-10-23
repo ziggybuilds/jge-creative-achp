@@ -35,8 +35,8 @@
 		?>
 				<div class="navIcons__item">
 					<a href="" class="carousel__navIcons">
-						<?php echo display_nav_icon($item['icon']);	?>
-						<p><?php echo $item['title']; ?></p>
+						<div><?php echo display_nav_icon($item['icon']); ?></div>
+						<div><p><?php echo $item['title']; ?></p></div>
 					</a>
 				</div>
 		<?php	

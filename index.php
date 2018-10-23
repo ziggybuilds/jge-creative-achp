@@ -37,8 +37,8 @@ get_header(); ?>
 										?>
 												<div class="navIcons__item">
 													<a href="<?php echo $item['link']; ?>">
-														<?php echo display_nav_icon($item['icon']);	?>
-														<p><?php echo $item['icon_title']; ?></p>
+														<div><?php echo display_nav_icon($item['icon']); ?></div>
+														<div><p><?php echo $item['icon_title']; ?></p></div>
 													</a>
 												</div>
 										<?php	
