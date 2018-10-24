@@ -32,7 +32,7 @@ if ( is_home() || is_front_page() ) {
 
 $pageID = get_the_ID();
 
-if( get_field('hero_image', $pageID) ) {
+if( get_field('hero_image', $pageID) && !is_archive() ) {
 	$heroImage = 'style="background-image: url(' . get_field('hero_image', $pageID) . ')"';
 }
 ?>
@@ -43,7 +43,7 @@ if( get_field('hero_image', $pageID) ) {
 			<?php
 				if ( is_home() || is_front_page() ) {
 					get_template_part('inc/home-hero');
-				} elseif ( !is_home() || !is_front_page()) {
+				} elseif ( !is_home() && !is_front_page() ) {
 					get_template_part('inc/page-hero');
 				}
 			?>

@@ -14,8 +14,7 @@ get_header(); ?>
 
 			<section class="error-404 not-found">
 				<div class="error-main">
-					<h1>Looks like you took a wrong turn.</h1>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><h1>Return home</h1></a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><button class="primary">Return home</button></a>
 				</div>
 			</section><!-- .error-404 -->
 

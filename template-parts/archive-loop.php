@@ -7,25 +7,31 @@
 */
 ?>
 <article class="article">
-			<?php
-				if( get_field('date_picker') ) {
-					$datePick = get_field('date_picker', false, false);
-					$datePick = new DateTime($datePick);
-
-					// allows user to select year display only
-					if ( get_field('display_year_only') === true ) {
-						$datePick = $datePick->format('Y');
-					} else {
-						$datePick = $datePick->format('F Y');
+			<a href="<?php echo get_permalink(); ?>">
+				<?php
+					if ( get_field('hero_image') ) {
+						$image = get_field('hero_image');
+					} elseif ( get_the_post_thumbnail_url() != undefined ) {
+						$image = get_the_post_thumbnail_url();
 					}
 
-				}
-			?>
-			<a href="<?php echo get_permalink(); ?>">
-				<p><span class="post-date"><?php echo $datePick; ?></span></p>
-				<h3><?php the_title(); ?></h3>
-				<div class="article-inner">
-					<div class="article-content"><?php the_excerpt(); ?></div>
+					if ( $image ) :
+				?>
+				<div class="article__image">
+					<img src="<?php echo $image; ?>">
+				</div>
+				<?php endif; ?>
+				<div class="article__content">
+					<p class="article__content__postDate"><?php the_date(); ?></p>
+					<h3 class="article__content__title"><?php the_title(); ?></h3>
+					<div class="article__content__excerpt">
+						<?php 
+						if ( get_field('custom_excerpt') ) {
+							echo get_field('custom_excerpt') . '. . .';
+						}
+						?>
+					</div>
+					<p class="article__content__link">Read More</p>
 				</div>
 			</a>
 </article>

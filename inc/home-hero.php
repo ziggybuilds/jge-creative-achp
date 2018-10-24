@@ -33,12 +33,21 @@
 	<?php
 		if ( have_rows('featured_articles', $pageID ) ) :
 			while ( have_rows('featured_articles', $pageID ) ) : the_row();
-				$article = get_sub_field('post_object');
-				$feature_post = get_post($post = $article, $output = OBJECT);
-				$title = $feature_post->post_title;
-				$date = mysql2date('F j, Y' ,$feature_post->post_date);
-				$url = get_permalink($card['card_object']);
-				$image = get_the_post_thumbnail_url($card['card_object']);
+				// conditional if internal resource
+				if ( get_sub_field('internal_condition') === true ) {
+					$article = get_sub_field('post_object');
+					$feature_post = get_post($post = $article, $output = OBJECT);
+					$title = $feature_post->post_title;
+					$date = mysql2date('F j, Y' ,$feature_post->post_date);
+					$url = get_permalink($card['card_object']);
+					$image = get_the_post_thumbnail_url($card['card_object']);
+				} else {
+					$title = get_sub_field('title');
+					$date = get_sub_field('date');
+					$url = get_sub_field('link');
+					$image = get_sub_field('image');
+				}
+
 	?>
 	<div class="header__innerWrapper__featured__card">
 		<a href="<?php echo $url; ?>">
