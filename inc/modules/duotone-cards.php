@@ -29,13 +29,14 @@
 					$url = $card['link'];
 					$desc = $card['description'];
 				}
+				$desc = wp_trim_words($desc, $num_words = 20, $more = '...');
 		?>
 		<div class="duotone-cards__innerWrapper__card" data-href="<?php echo $url; ?>">
 			<div class="duotone-cards__innerWrapper__card__title">
 				<h5><?php echo $title; ?></h5>
 			</div>
 			<div class="duotone-cards__innerWrapper__card__content">
-				<p><?php echo $desc; ?> ...</p>
+				<p><?php echo $desc; ?></p>
 				<a href="<?php echo $url; ?>">More</a>
 			</div>
 		</div>

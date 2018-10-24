@@ -552,7 +552,7 @@ acf_add_local_field_group(array(
 			),
 			'default_value' => '',
 			'placeholder' => '',
-			'maxlength' => 80,
+			'maxlength' => 350,
 			'rows' => '',
 			'new_lines' => '',
 		),
