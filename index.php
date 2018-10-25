@@ -13,7 +13,10 @@
  */
 
 get_header(); ?>
- <?php $id = get_the_id(); ?>
+ <?php 
+ $id = get_the_id(); 
+ $current_url = get_permalink($id)
+ ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main container indexPost" role="main">
 			<div class="inner-wrapper indexPost__innerWrapper">
@@ -34,8 +37,14 @@ get_header(); ?>
 										<div class="navIcons">
 										<?php
 											foreach($rows as $item) :
+												// conditional page highlighting if link matches
+												if ( $item['link'] == $current_url ) {
+													$active = 'active-nav';
+												} else {
+													$active = '';
+												}
 										?>
-												<div class="navIcons__item">
+												<div class="navIcons__item <?php echo $active; ?>">
 													<a href="<?php echo $item['link']; ?>">
 														<div><?php echo display_nav_icon($item['icon']); ?></div>
 														<div><p><?php echo $item['icon_title']; ?></p></div>
