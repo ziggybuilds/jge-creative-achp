@@ -300,6 +300,14 @@
 
       @media screen and (min-width: $md) {
         flex: 1 0 30%;
+
+        &:first-child {
+          margin: .5em .5em .5em 0;
+        }
+
+        &:last-child {
+          margin: .5em 0 .5em .5em;
+        }
       }
 
       @media screen and (min-width: $sm) and (max-width: $md) {

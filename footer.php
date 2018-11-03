@@ -22,9 +22,14 @@
 			?>
 		</div>
 		<?php
+		if( get_field('logo_link', 'options') ) :
+			$logo_link = get_field('logo_link', 'options');
+		else : 
+			$logo_link = '';
+		endif;
 		if( get_field('logo', 'options') ) :
 				echo '<div class="footer__innerWrapper__logo">' .
-						'<img src="' . get_field('logo', 'options') . '">' .
+						'<a href="' . $logo_link . '"><img src="' . get_field('logo', 'options') . '"></a>' .
 					'</div>';
 		endif;
 		?>

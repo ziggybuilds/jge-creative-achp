@@ -34,6 +34,17 @@ header .headerMenu__innerWrapper {
 	overflow: hidden;
 }
 
+header .headerMenu__innerWrapper__twitter {
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	padding: 1em 0;
+
+	@media screen and (max-width: $sm) {
+		display: none;
+	}
+}
+
 header .headerMenu__innerWrapper__logo {
 	display: table-cell;
 	vertical-align: middle;

@@ -19,7 +19,7 @@ get_header(); ?>
  ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main container indexPost" role="main">
-			<div class="inner-wrapper indexPost__innerWrapper">
+			<div class="indexPost__innerWrapper">
 			<?php 
 				// begin page loop
 				if ( have_posts() ) : 

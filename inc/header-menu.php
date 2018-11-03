@@ -26,5 +26,10 @@
 				'menu_class' => 'headerMenu__innerWrapper__menuInner',
 				) );
 		?>
+		<?php
+			if ( get_field('twitter_link', 'options' ) ) :
+				echo '<a class="headerMenu__innerWrapper__twitter" href="' . get_field('twitter_link', 'options' ) . '"><i class="fab fa-twitter"></i></a>';
+			endif;
+		?>
 	</div>
 </div>
